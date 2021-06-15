@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(759, 592)
         MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -361,7 +361,7 @@ class Ui_MainWindow(object):
         self.mouseList.setStyleSheet("background-color: rgba(148, 148, 148, 102);\n"
 "border-radius:3px;\n"
 "padding:5px;\n"
-"font-size: 10px;")
+"font-size: 15px;")
         self.mouseList.setObjectName("mouseList")
         self.verticalLayout_15.addWidget(self.mouseList)
         self.progressBar = QtWidgets.QProgressBar(self.frame_19)

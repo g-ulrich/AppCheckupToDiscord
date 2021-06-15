@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>759</width>
+    <height>592</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -819,7 +819,7 @@ color: lightgray;</string>
                           <string notr="true">background-color: rgba(148, 148, 148, 102);
 border-radius:3px;
 padding:5px;
-font-size: 10px;</string>
+font-size: 15px;</string>
                          </property>
                         </widget>
                        </item>
