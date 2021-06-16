@@ -3,6 +3,9 @@ from PyQt5 import QtGui
 import pyautogui
 import time
 import random
+import os
+from os.path import exists
+import discord
 
 
 def current_time():
@@ -34,7 +37,19 @@ class Presets:
         self.ui.mouseList.addItem("")
 
     def init_ui(self):
-        print()
+        try:
+            os.mkdir("user_data")
+        except:
+            pass
+        fileObject = open("user_data/webhook.txt", "r")
+        data = fileObject.read()
+        fileObject.close()
+        if len(data) < 10:
+            self.ui.webhook = ""
+        else:
+            self.ui.webhook = data
+            self.ui.lineEdit.setText(data)
+
         self.ui.bar.setMaximum(100)
         self.ui.bar.setValue(100)
         self.setWindowIcon(QtGui.QIcon('images/discord.png'))
@@ -42,7 +57,7 @@ class Presets:
         self.ui.close.clicked.connect(lambda: self.close())
         self.ui.minimize.clicked.connect(lambda: self.showMinimized())
         self.ui.startBtn.clicked.connect(lambda: Presets.start(self))
-        # self.ui.stopBtn.clicked.connect(lambda: Presets.stop_awake(self))
+        self.ui.stopBtn.clicked.connect(lambda: Presets.stop(self))
         # self.ui.spinBox.valueChanged.connect(lambda: Presets.frequency(self))
         # self.ui.timer = QTimer()
         # self.ui.timer.timeout.connect(lambda: Presets.mouse_loop(self))
@@ -57,23 +72,38 @@ class Presets:
         self.ui.bar.setValue(self.ui.SECONDS)
 
     def start(self):
+
+
+
+
+        fileObject = open("user_data/webhook.txt", "r")
+        data = fileObject.read()
+        fileObject.close()
+        if len(data) < 10:
+            self.ui.webhook = self.ui.lineEdit.text()
+            with open('user_data/webhook.txt', 'w') as f:
+                f.write(self.ui.webhook)
+                Presets.event_log(self, "Webhook URL saved.")
+        else:
+            self.ui.webhook = data
+            self.ui.lineEdit.setText(data)
+
         if self.ui.mins.value() != 0.0 or self.ui.hrs.value() != 0.0:
             self.ui.errorMsg.setText("")
-            # self.ui.start_timer = QTimer()
-            # self.ui.start_timer.timeout.connect(lambda: Presets.awake_loop(self))
+            self.ui.start_timer = QTimer()
+            self.ui.start_timer.timeout.connect(lambda: Presets.awake_loop(self))
             hrs_to_secs, mins_to_secs = (self.ui.hrs.value()*60)*60000, self.ui.mins.value()*60000
-            # self.ui.start_timer.start(hrs_to_secs + mins_to_secs)
+            self.ui.start_timer.start(hrs_to_secs + mins_to_secs)
             self.ui.SECONDS = (hrs_to_secs + mins_to_secs)/1000
             Presets.event_log(self, "Start")
             Presets.event_log(self, "Interval set to {} minutes.".format(self.ui.SECONDS/60))
             self.ui.bar.setMaximum(self.ui.SECONDS)
             self.ui.bar.setValue(self.ui.SECONDS)
-            # self.ui.progress_timer = QTimer()
-            # self.ui.progress_timer.timeout.connect(lambda: Presets.progress_bar_count(self))
-            # self.ui.progress_timer.start(1000)
-            # Presets.event_log(self, "Start")
-            # self.ui.stopBtn.show()
-            # self.ui.startBtn.hide()
+            self.ui.progress_timer = QTimer()
+            self.ui.progress_timer.timeout.connect(lambda: Presets.progress_bar_count(self))
+            self.ui.progress_timer.start(1000)
+            self.ui.stopBtn.show()
+            self.ui.startBtn.hide()
         else:
             self.ui.errorMsg.setText("Set an interval! :)")
 
@@ -87,20 +117,13 @@ class Presets:
         self.ui.startBtn.show()
 
     def awake_loop(self):
-        # nums = [1, 2, -1, -2, 0, 0]
-        # for i in range(0, 2):
-        #     pos = pyautogui.position()
-        #     xpos, ypos = pos[0], pos[1]
-        #     pyautogui.moveTo(xpos+random.choice(nums), ypos+random.choice(nums))
-        #     pyautogui.moveTo(xpos+random.choice(nums), ypos+random.choice(nums))
-        # for i in range(5):
-        #     pyautogui.press('ctrl')
-        # Presets.event_log(self, mouse_synonym())
-        self.ui.SECONDS = (self.ui.spinBox.value() * 60000) / 1000
-        self.ui.bar.setMaximum(self.ui.SECONDS)
-        self.ui.bar.setValue(self.ui.SECONDS)
-    #
-    # def mouse_loop(self):
-    #     self.ui.mouseTime.setText(current_time())
-    #     pos = pyautogui.position()
-    #     self.ui.mousexy.setText("({}, {})".format(pos[0], pos[1]))
+        pic = pyautogui.screenshot()
+        img_path = 'user_data/screenshot.png'
+        img_name = current_time().replace(":", ".").replace(" ", "_")
+        pic.save(img_path)
+        # Presets.event_log(self, "Loop Complete.")
+        # hrs_to_secs, mins_to_secs = (self.ui.hrs.value() * 60) * 60000, self.ui.mins.value() * 60000
+        # self.ui.SECONDS = (hrs_to_secs + mins_to_secs)/1000
+        # self.ui.bar.setMaximum(self.ui.SECONDS)
+        # self.ui.bar.setValue(self.ui.SECONDS)
+

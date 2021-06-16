@@ -356,7 +356,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_15.addWidget(self.frame_40)
         self.mouseList = QtWidgets.QListWidget(self.frame_19)
         font = QtGui.QFont()
-        font.setPointSize(-1)
+        # font.setPointSize(-1)
         self.mouseList.setFont(font)
         self.mouseList.setStyleSheet("background-color: rgba(148, 148, 148, 102);\n"
 "border-radius:3px;\n"
