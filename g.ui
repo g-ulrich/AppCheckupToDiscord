@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Screen Shot To Discord</string>
+   <string>App Checkup To Discord</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -124,7 +124,7 @@ margin-left:5px;</string>
 color: lightgray;</string>
             </property>
             <property name="text">
-             <string>Screen Shot to Discord</string>
+             <string>App Checkup To Discord</string>
             </property>
            </widget>
           </item>
@@ -627,7 +627,7 @@ background-color: none;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8px; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16px;&quot;&gt;&lt;br /&gt;The webhook url will be saved in a json file and accessed next time the app is opened. &lt;/span&gt;&lt;span style=&quot; font-size:16px; font-style:italic;&quot;&gt;&lt;br /&gt;&lt;br /&gt;The app will test the URLs validity and notify you if the URL is incorrect. &lt;/span&gt;&lt;span style=&quot; font-size:16px;&quot;&gt;&lt;br /&gt;&lt;br /&gt;According to the interval set the app will send an image to your Discord channel when the progress bar hits zero.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16px;&quot;&gt;&lt;br /&gt;The webhook url will be saved in a .txt file and accessed next time the app is opened. &lt;/span&gt;&lt;span style=&quot; font-size:16px; font-style:italic;&quot;&gt;&lt;br /&gt;&lt;br /&gt;The app will test the URLs validity and notify you if the URL is incorrect. &lt;/span&gt;&lt;span style=&quot; font-size:16px;&quot;&gt;&lt;br /&gt;&lt;br /&gt;According to the interval the app will send a success message to your Discord channel when the progress bar hits zero.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                         </widget>
                        </item>

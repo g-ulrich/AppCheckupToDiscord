@@ -356,7 +356,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_15.addWidget(self.frame_40)
         self.mouseList = QtWidgets.QListWidget(self.frame_19)
         font = QtGui.QFont()
-        # font.setPointSize(-1)
+        font.setPointSize(-1)
         self.mouseList.setFont(font)
         self.mouseList.setStyleSheet("background-color: rgba(148, 148, 148, 102);\n"
 "border-radius:3px;\n"
@@ -416,8 +416,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Screen Shot To Discord"))
-        self.label_3.setText(_translate("MainWindow", "Screen Shot to Discord"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "App Checkup To Discord"))
+        self.label_3.setText(_translate("MainWindow", "App Checkup To Discord"))
         self.label_4.setText(_translate("MainWindow", "Discord Webhook URL"))
         self.label_9.setText(_translate("MainWindow", "Hour(s)"))
         self.label_10.setText(_translate("MainWindow", "Min(s)"))
@@ -425,7 +425,7 @@ class Ui_MainWindow(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8px; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16px;\"><br />The webhook url will be saved in a json file and accessed next time the app is opened. </span><span style=\" font-size:16px; font-style:italic;\"><br /><br />The app will test the URLs validity and notify you if the URL is incorrect. </span><span style=\" font-size:16px;\"><br /><br />According to the interval set the app will send an image to your Discord channel when the progress bar hits zero.</span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16px;\"><br />The webhook url will be saved in a .txt file and accessed next time the app is opened. </span><span style=\" font-size:16px; font-style:italic;\"><br /><br />The app will test the URLs validity and notify you if the URL is incorrect. </span><span style=\" font-size:16px;\"><br /><br />According to the interval the app will send a success message to your Discord channel when the progress bar hits zero.</span></p></body></html>"))
         self.stopBtn.setToolTip(_translate("MainWindow", "Stop Auto Clicker!"))
         self.startBtn.setToolTip(_translate("MainWindow", "Start Auto Clicker!"))
         self.label_6.setText(_translate("MainWindow", "Screen Shot Log"))
