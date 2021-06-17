@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="newPrefix">
+    <file>images/logo.png</file>
     <file>images/16x16/cil-3d.png</file>
     <file>images/discord.png</file>
     <file>images/16x16/cil-4k.png</file>

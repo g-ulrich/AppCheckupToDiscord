@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\desktop2\projects\pyqt5\ScreenShotToDiscord\g.ui'
+# Form implementation generated from reading ui file 'C:\desktop2\projects\pyqt5\AppCheckupToDiscord\g.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -148,31 +148,32 @@ class Ui_MainWindow(object):
         self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_5.setObjectName("frame_5")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.frame_5)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.frame = QtWidgets.QFrame(self.frame_5)
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame.setObjectName("frame")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame)
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_2.setSpacing(0)
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.label_4 = QtWidgets.QLabel(self.frame)
-        self.label_4.setObjectName("label_4")
-        self.horizontalLayout_2.addWidget(self.label_4)
-        self.errorMsg = QtWidgets.QLabel(self.frame)
-        self.errorMsg.setStyleSheet("color: red;")
-        self.errorMsg.setText("")
-        self.errorMsg.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.errorMsg.setObjectName("errorMsg")
-        self.horizontalLayout_2.addWidget(self.errorMsg)
-        self.verticalLayout_3.addWidget(self.frame)
-        self.lineEdit = QtWidgets.QLineEdit(self.frame_5)
-        self.lineEdit.setStyleSheet("padding: 5px;\n"
+        self.horizontalLayout_8 = QtWidgets.QHBoxLayout(self.frame_5)
+        self.horizontalLayout_8.setContentsMargins(9, 0, 0, 0)
+        self.horizontalLayout_8.setObjectName("horizontalLayout_8")
+        self.frame_7 = QtWidgets.QFrame(self.frame_5)
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.horizontalLayout_9 = QtWidgets.QHBoxLayout(self.frame_7)
+        self.horizontalLayout_9.setObjectName("horizontalLayout_9")
+        self.label_2 = QtWidgets.QLabel(self.frame_7)
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout_9.addWidget(self.label_2)
+        self.password = QtWidgets.QLineEdit(self.frame_7)
+        self.password.setStyleSheet("padding: 5px;\n"
 "border-radius: 3px;")
-        self.lineEdit.setObjectName("lineEdit")
-        self.verticalLayout_3.addWidget(self.lineEdit)
+        self.password.setObjectName("password")
+        self.horizontalLayout_9.addWidget(self.password)
+        self.horizontalLayout_8.addWidget(self.frame_7)
+        self.frame_9 = QtWidgets.QFrame(self.frame_5)
+        self.frame_9.setStyleSheet("image: url(:/newPrefix/images/logo.png);")
+        self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_9.setObjectName("frame_9")
+        self.horizontalLayout_8.addWidget(self.frame_9)
+        self.horizontalLayout_8.setStretch(0, 9)
+        self.horizontalLayout_8.setStretch(1, 1)
         self.verticalLayout_11.addWidget(self.frame_5)
         self.frame_32 = QtWidgets.QFrame(self.frame_13)
         self.frame_32.setStyleSheet("QRadioButton {\n"
@@ -254,6 +255,7 @@ class Ui_MainWindow(object):
         self.label_9.setObjectName("label_9")
         self.verticalLayout_5.addWidget(self.label_9)
         self.hrs = QtWidgets.QSpinBox(self.frame_37)
+        self.hrs.setProperty("value", 1)
         self.hrs.setObjectName("hrs")
         self.verticalLayout_5.addWidget(self.hrs)
         self.horizontalLayout_14.addWidget(self.frame_37)
@@ -356,7 +358,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_15.addWidget(self.frame_40)
         self.mouseList = QtWidgets.QListWidget(self.frame_19)
         font = QtGui.QFont()
-        font.setPointSize(-1)
+        # font.setPointSize(-1)
         self.mouseList.setFont(font)
         self.mouseList.setStyleSheet("background-color: rgba(148, 148, 148, 102);\n"
 "border-radius:3px;\n"
@@ -364,17 +366,6 @@ class Ui_MainWindow(object):
 "font-size: 15px;")
         self.mouseList.setObjectName("mouseList")
         self.verticalLayout_15.addWidget(self.mouseList)
-        self.progressBar = QtWidgets.QProgressBar(self.frame_19)
-        self.progressBar.setStyleSheet("QProgressBar{\n"
-"font-size: 1px;\n"
-"color: rgba(0,0,0,0.1);\n"
-"min-height: 2px;\n"
-"max-height: 2px;\n"
-"\n"
-"}")
-        self.progressBar.setProperty("value", 0)
-        self.progressBar.setObjectName("progressBar")
-        self.verticalLayout_15.addWidget(self.progressBar)
         self.horizontalLayout_7.addWidget(self.frame_19)
         self.horizontalLayout_7.setStretch(0, 20)
         self.horizontalLayout_7.setStretch(1, 60)
@@ -418,16 +409,16 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "App Checkup To Discord"))
         self.label_3.setText(_translate("MainWindow", "App Checkup To Discord"))
-        self.label_4.setText(_translate("MainWindow", "Discord Webhook URL"))
+        self.label_2.setText(_translate("MainWindow", "Password/Pin:"))
         self.label_9.setText(_translate("MainWindow", "Hour(s)"))
         self.label_10.setText(_translate("MainWindow", "Min(s)"))
         self.textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8px; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16px;\"><br />The webhook url will be saved in a .txt file and accessed next time the app is opened. </span><span style=\" font-size:16px; font-style:italic;\"><br /><br />The app will test the URLs validity and notify you if the URL is incorrect. </span><span style=\" font-size:16px;\"><br /><br />According to the interval the app will send a success message to your Discord channel when the progress bar hits zero.</span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16px;\"><br />The webhook url will be saved in a .txt file and accessed next time the app is opened. </span><span style=\" font-size:16px; font-style:italic;\"><br /><br />The app will test the URLs validity and notify you if the URL is incorrect. </span><span style=\" font-size:16px;\"><br /><br />According to the interval the app will send a checkup message to your Discord channel when the progress bar hits zero.</span><span style=\" font-size:8px;\"> -Gabe</span></p></body></html>"))
         self.stopBtn.setToolTip(_translate("MainWindow", "Stop Auto Clicker!"))
         self.startBtn.setToolTip(_translate("MainWindow", "Start Auto Clicker!"))
-        self.label_6.setText(_translate("MainWindow", "Screen Shot Log"))
+        self.label_6.setText(_translate("MainWindow", "App Checkup Log"))
         self.mouseLastUpdate.setText(_translate("MainWindow", "            00:00:00 am"))
 import resources_rc
