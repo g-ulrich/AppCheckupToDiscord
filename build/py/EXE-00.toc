@@ -1,5 +1,5 @@
 ('C:\\desktop2\\projects\\pyqt5\\AppCheckupToDiscord\\dist\\AppCheckupToDiscord.exe',
- True,
+ False,
  False,
  False,
  'logo.ico',
@@ -2518,7 +2518,7 @@
  [],
  False,
  False,
- 1623985667,
- [('run.exe',
-   'c:\\desktop2\\python39\\lib\\site-packages\\PyInstaller\\bootloader\\Windows-32bit\\run.exe',
+ 1623986025,
+ [('runw.exe',
+   'c:\\desktop2\\python39\\lib\\site-packages\\PyInstaller\\bootloader\\Windows-32bit\\runw.exe',
    'EXECUTABLE')])
