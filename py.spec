@@ -3,14 +3,14 @@
 block_cipher = None
 
 
-a = Analysis(['KeepScreenAwake.py'],
-             pathex=['C:\\desktop2\\2021\\scripts\\python\\PyCharmProjects\\awake\\KeepScreenAwake'],
+a = Analysis(['main.py'],
+             pathex=['C:\\desktop2\\projects\\pyqt5\\AppCheckupToDiscord'],
              binaries=[],
              datas=[('images', 'images')],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
-             excludes=['tkinter', 'test', 'sqlite3', 'numpy'],
+             excludes=['tkinter', 'test', 'matplotlib'],
              win_no_prefer_redirects=False,
              win_private_assemblies=False,
              cipher=block_cipher,
@@ -23,11 +23,11 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
-          name='KeepScreenAwake',
+          name='AppCheckupToDiscord',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=False , icon='images\\mouse.ico')
+          console=False , icon='images\\logo.ico')

@@ -561,7 +561,7 @@ background-color: none;
                                    <item>
                                     <widget class="QSpinBox" name="hrs">
                                      <property name="value">
-                                      <number>1</number>
+                                      <number>0</number>
                                      </property>
                                     </widget>
                                    </item>
@@ -601,8 +601,14 @@ background-color: none;
                                    </item>
                                    <item>
                                     <widget class="QSpinBox" name="mins">
+                                     <property name="minimum">
+                                      <number>15</number>
+                                     </property>
                                      <property name="maximum">
                                       <number>60</number>
+                                     </property>
+                                     <property name="value">
+                                      <number>15</number>
                                      </property>
                                     </widget>
                                    </item>
