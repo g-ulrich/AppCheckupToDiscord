@@ -75,7 +75,7 @@ class Presets:
 
     def start(self):
         CON = sql.connect('userData/user.db')
-        if db.valid_login_password(CON, self.ui.password.text(), commit=False):
+        if db.valid_login_password(CON, self.ui.password.text(), commit=False) and not db.select_stop_session_status(CON, commit=False):
             self.ui.user_data = db.user_data_by_password(CON, self.ui.password.text(), commit=False)
             if self.ui.mins.value() != 0.0 or self.ui.hrs.value() != 0.0:
                 self.ui.start_timer = QTimer()
@@ -95,7 +95,10 @@ class Presets:
             else:
                 Presets.event_log(self, "Set an interval! :)")
         else:
-            Presets.event_log(self, "Enter an application password. :)")
+            if not db.valid_login_password(CON, self.ui.password.text(), commit=False):
+                Presets.event_log(self, "Enter an application password. :)")
+            if db.select_stop_session_status(CON, commit=False):
+                Presets.event_log(self, "Start live trading session. :)")
 
     def stop(self):
         self.ui.start_timer.stop()
@@ -109,12 +112,6 @@ class Presets:
     def awake_loop(self):
         CON = sql.connect('userData/user.db')
         data = db.get_timestamps_from_livetrade(CON, commit=False)
-
-        """
-        - if the diff in minutes is the same through three spearate db entries then move fporward witha  success message.
-        - The only time you would move forward with success without these params being sent is if the time is past 
-        6pm < 7am or its a weekend or if the last entry in the db is 0000-00-00 00:00:00
-        """
         # current set
         current_min_diff, sec1 = datetime_diff(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), data[-1])
         # last set
@@ -150,7 +147,7 @@ class Presets:
         if message != "":
             message_discord_server(message, self.ui.user_data)
 
-        Presets.event_log(self, "Loop Complete.")
+        Presets.event_log(self, "\n"+message)
         hrs_to_secs, mins_to_secs = (self.ui.hrs.value() * 60) * 60000, self.ui.mins.value() * 60000
         self.ui.SECONDS = (hrs_to_secs + mins_to_secs)/1000
         self.ui.bar.setMaximum(self.ui.SECONDS)

@@ -112,6 +112,39 @@ def user_data_by_password(connect, password="", commit=True):
                 'twilioauth': '', 'twiliophone': '', 'phone': '', 'discordwebhook': ''}
 
 
+# Check if livetrade is operating
+def insert_stop_session(connect, data=(), commit=True):
+    try:
+        if not table_exist(connect, "stop_session"):
+            cols = ("trade", "status")
+            create_table(connect, table="stop_session", columns=cols, commit=False)
+        cursor = connect.cursor()
+        cursor.execute("INSERT INTO stop_session VALUES" + str(data))
+        if commit:
+            connect.commit()
+    except Exception as e:
+        print("insert_stop_session() - ", e)
+
+
+def select_stop_session_status(connect, trade="stop_livetrade", commit=True):
+    """
+    select_stop_session_status == 1 means true the session has stopped 0 means false it has not stopped.
+    """
+    try:
+        if not table_exist(connect, "stop_session"):
+            cols = ("trade", "status")
+            create_table(connect, table="stop_session", columns=cols, commit=False)
+            insert_stop_session(connect, trade=trade, data=(trade, True), commit=True)
+        cursor = connect.cursor()
+        result = cursor.execute("SELECT status FROM {} where trade = '{}'".format("stop_session", trade)).fetchall()
+        if commit:
+            connect.commit()
+        return True if result[0][0] == 1 else False
+    except Exception as e:
+        # print("select_stop_session_status() - ", e)
+        return "failure"
+
+
 
 
 
