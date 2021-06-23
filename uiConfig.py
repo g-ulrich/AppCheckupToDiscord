@@ -53,7 +53,7 @@ class Presets:
             self.ui.mouseList.clear()
             self.ui.mouseList.addItem("CLEARED --> {}".format(t))
         self.ui.mouseList.takeItem(c-1)
-        self.ui.mouseList.addItem("{} - {}".format(t, message))
+        self.ui.mouseList.addItem("[{}] {}".format(t, message))
         self.ui.mouseList.addItem("")
 
     def init_ui(self):
@@ -125,7 +125,7 @@ class Presets:
         checkup_interval = self.ui.mins.value() + (self.ui.hrs.value() * 60)
         livetrade_loop_rate = min3 if previous_min_diff == min3 else "unknown"
 
-        if data[-1] != "0000-00-00 00:00:00":
+        if data[-1] != "2000-01-01 00:00:00":
             if checkup_interval < current_min_diff:
                 message = "```diff\n-Error! Application stopped live trading!\n-Stoppage occurred after: {}\n``` ".format(data[-1])
 
@@ -136,18 +136,18 @@ class Presets:
                 message = "```diff\n+Success! Application is live trading.\n+Last loop occurrence: {}\n+Live Trade Loop Rate: {} minute(s)``` ".format(data[-1], livetrade_loop_rate)
         else:
             lastItem = self.ui.mouseList.currentItem()
-            if "check." not in lastItem:
+            if "check." != lastItem:
                 db.drop_table(CON, "live_trade_timestamps", commit=True)
-                db.insert_timestamp_livetrade(CON, data=("0000-00-00 00:00:00", ""), commit=False)
-                db.insert_timestamp_livetrade(CON, data=("0000-00-00 00:00:00", ""), commit=False)
-                db.insert_timestamp_livetrade(CON, data=("0000-00-00 00:00:00", ""), commit=True)
+                db.insert_timestamp_livetrade(CON, data=("2000-01-01 00:00:00", ""), commit=False)
+                db.insert_timestamp_livetrade(CON, data=("2000-01-01 00:00:00", ""), commit=False)
+                db.insert_timestamp_livetrade(CON, data=("2000-01-01 00:00:00", ""), commit=True)
                 Presets.event_log(self, "Market Closed: bypassing check.")
                 message = "Market Closed: bypassing check."
 
         if message != "":
             message_discord_server(message, self.ui.user_data)
 
-        Presets.event_log(self, "\n"+message)
+        Presets.event_log(self, "\n"+message.replace("'''", "").replace("diff", "").replace("ini"))
         hrs_to_secs, mins_to_secs = (self.ui.hrs.value() * 60) * 60000, self.ui.mins.value() * 60000
         self.ui.SECONDS = (hrs_to_secs + mins_to_secs)/1000
         self.ui.bar.setMaximum(self.ui.SECONDS)

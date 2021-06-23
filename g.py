@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(759, 592)
+        MainWindow.resize(638, 397)
         MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -418,7 +418,7 @@ class Ui_MainWindow(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8px; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16px;\"><br />The webhook url will be saved in a .txt file and accessed next time the app is opened. </span><span style=\" font-size:16px; font-style:italic;\"><br /><br />The app will test the URLs validity and notify you if the URL is incorrect. </span><span style=\" font-size:16px;\"><br /><br />According to the interval the app will send a checkup message to your Discord channel when the progress bar hits zero.</span><span style=\" font-size:8px;\"> -Gabe</span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16px;\">According to the interval the app will send a checkup message to your Discord channel when the progress bar hits zero.</span><span style=\" font-size:8px;\"> -Gabe</span></p></body></html>"))
         self.stopBtn.setToolTip(_translate("MainWindow", "Stop Auto Clicker!"))
         self.startBtn.setToolTip(_translate("MainWindow", "Start Auto Clicker!"))
         self.label_6.setText(_translate("MainWindow", "App Checkup Log"))

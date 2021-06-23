@@ -3,10 +3,13 @@
 # #
 # # for i in range(5):
 # #     date = datetime.datetime.now()
-# #     string_date = date.strftime("%Y-%m-%d %H:%M:%S")
+# sd = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 # #     time.sleep(1)
 # #     print(string_date)
-# # # string_to_date = datetime.datetime.strptime(string_date, "%Y-%m-%d %H:%M:%S")
+import datetime
+std = datetime.datetime.strptime("2000-01-01 00:00:00", "%Y-%m-%d %H:%M:%S")
+# sd = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+print(std)
 # # # time.sleep(100)
 # # # date2 = datetime.datetime.now()
 # # #
