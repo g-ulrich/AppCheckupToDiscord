@@ -118,7 +118,7 @@ class Presets:
         previous_min_diff, sec2 = datetime_diff(data[-1], data[-2])
         #second to last set
         min3, sec3 = datetime_diff(data[-2], data[-3])
-        message = ""
+        message = "_"
         """
         if interval check is greater than min diff then success
         """
@@ -135,19 +135,19 @@ class Presets:
             else:
                 message = "```diff\n+Success! Application is live trading.\n+Last loop occurrence: {}\n+Live Trade Loop Rate: {} minute(s)``` ".format(data[-1], livetrade_loop_rate)
         else:
-            lastItem = self.ui.mouseList.currentItem()
-            if "check." != lastItem:
+            lastItem = self.ui.mouseList.currentItem().text()
+            if "bypassing" not in lastItem or "_" not in lastItem:
                 db.drop_table(CON, "live_trade_timestamps", commit=True)
                 db.insert_timestamp_livetrade(CON, data=("2000-01-01 00:00:00", ""), commit=False)
                 db.insert_timestamp_livetrade(CON, data=("2000-01-01 00:00:00", ""), commit=False)
                 db.insert_timestamp_livetrade(CON, data=("2000-01-01 00:00:00", ""), commit=True)
-                Presets.event_log(self, "Market Closed: bypassing check.")
-                message = "Market Closed: bypassing check."
+                message = "Market Closed: bypassing checkup..."
+                Presets.event_log(self, message)
 
         if message != "":
             message_discord_server(message, self.ui.user_data)
 
-        Presets.event_log(self, "\n"+message.replace("'''", "").replace("diff", "").replace("ini"))
+        Presets.event_log(self, "\n"+message.replace("```", "").replace("diff", "").replace("ini", ""))
         hrs_to_secs, mins_to_secs = (self.ui.hrs.value() * 60) * 60000, self.ui.mins.value() * 60000
         self.ui.SECONDS = (hrs_to_secs + mins_to_secs)/1000
         self.ui.bar.setMaximum(self.ui.SECONDS)
